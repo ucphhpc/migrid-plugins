@@ -1,0 +1,6 @@
+# local
+/envhelp/venv
+/envhelp/output
+
+# build
+/input/
