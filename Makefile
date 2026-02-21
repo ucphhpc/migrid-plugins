@@ -1,12 +1,14 @@
+STATIC_DIR = './index'
+
 .PHONE: build
 build:
 	@echo "Dumping package list"
-	@ls -1 ./pool/ > ./input/packages.lst
+	@ls -1 $(STATIC_DIR)/pool/ > ./input/packages.lst
 	@echo "Generating index"
 	@./envhelp/venv/bin/dumb-pypi \
 		--package-list ./input/packages.lst \
-		--packages-url '../pool' \
-		--output-dir ./index
+		--packages-url '../../pool' \
+		--output-dir $(STATIC_DIR)
 
 .PHONY: development
 development: ./envhelp/venv/pyvenv.cfg
