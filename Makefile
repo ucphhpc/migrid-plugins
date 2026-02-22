@@ -1,13 +1,13 @@
-STATIC_DIR = './index'
+STATIC_DIR = './static'
 
 .PHONE: build
-build:
+build: development
 	@echo "Dumping package list"
 	@ls -1 $(STATIC_DIR)/pool/ > ./input/packages.lst
 	@echo "Generating index"
 	@./envhelp/venv/bin/dumb-pypi \
 		--package-list ./input/packages.lst \
-		--packages-url '../../pool' \
+		--packages-url 'https://github.com/ucphhpc/migrid-plugins/raw/refs/heads/next/static/pool' \
 		--output-dir $(STATIC_DIR)
 
 .PHONY: development
